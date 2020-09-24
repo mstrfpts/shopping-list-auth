@@ -1,5 +1,5 @@
 .Container {
-  height: 90vh;
+  height: 100vh;
   padding-top: 110px;
   display: flex;
   flex-direction: column;
@@ -76,8 +76,29 @@
 .CategorizedList {
   margin-top: 20px;
   display: flex;
+  overflow-y: auto;
 }
 
 .CategorizedListAcc {
   min-width: 225px;
+  /*border: solid 1px darkblue;*/
+  border-radius: 5px;
+}
+
+.CategorizedListAccCard {
+  border: 1px solid #59839c;
+  background-color: #59839c !important;
+  margin: 10px 0;
+  border-radius: 4px !important;
+}
+
+.CategorizedListAccCardHeader {
+  font-size: larger !important;
+  font-weight: bolder;
+  padding: 16px !important;
+}
+
+.CategorizedListAccCardData {
+  background-color: #6c98bd;
+  font-weight: 500;
 }

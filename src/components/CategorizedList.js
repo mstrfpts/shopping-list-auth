@@ -33,16 +33,19 @@ const CategorizedList = (props) => {
           return item.category === category;
         });
         return (
-          <Card key={cindex + 1}>
-            <Accordion.Toggle as={Card.Header} eventKey={cindex + 1}>
+          <Card key={cindex + 1} className={"CategorizedListAccCard"}>
+            <Accordion.Toggle
+              as={Card.Header}
+              eventKey={cindex + 1}
+              className={"CategorizedListAccCardHeader"}
+            >
               {`${category}${getQuatityString(categorizedItems.length)}`}
             </Accordion.Toggle>
             {categorizedItems.map((item, index) => (
               <Accordion.Collapse key={index} eventKey={cindex + 1}>
-                <Card.Body>{`${item.item}${getQuatityString(
-                  item.quantity,
-                  "item"
-                )}`}</Card.Body>
+                <Card.Body className={"CategorizedListAccCardData"}>{`${
+                  item.item
+                }${getQuatityString(item.quantity, "item")}`}</Card.Body>
               </Accordion.Collapse>
             ))}
           </Card>

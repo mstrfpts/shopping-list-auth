@@ -21,6 +21,12 @@ const App = () => {
   const [itemCount, setItemCount] = useState(1);
   const [itemList, setItemList] = useState([]);
 
+  const ItemKeyPressHandler = (e) => {
+    if (e.key === "Enter") {
+      addClickHandler();
+    }
+  };
+
   const addClickHandler = (e) => {
     console.log("derd filter item", item);
     console.log("derd filter itemCount", itemCount);
@@ -64,6 +70,7 @@ const App = () => {
             type="text"
             value={item}
             placeholder="Add Item"
+            onKeyPress={ItemKeyPressHandler}
             onChange={(e) => {
               setItem(e.target.value);
             }}
