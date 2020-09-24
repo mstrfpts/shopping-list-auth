@@ -1,0 +1,83 @@
+.Container {
+  height: 90vh;
+  padding-top: 110px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*justify-content: center;*/
+  background-color: rgb(134, 157, 197);
+}
+
+.PageTitle {
+  font-size: xx-large;
+  color: darkblue;
+}
+
+.ItemsContainer {
+  display: flex;
+}
+
+.ItemInput {
+  margin: 5px;
+}
+
+.CountInput {
+  margin: 5px;
+}
+
+.CategoryList {
+  margin: 5px;
+  position: relative;
+  left: 16%;
+}
+
+.CountContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.AddbuttonsContainer {
+  display: flex;
+  position: relative;
+  left: -5px;
+}
+
+.AddButton {
+  display: flex;
+  position: relative;
+  left: 24%;
+}
+
+.CountButtonContainer {
+  display: flex;
+  position: relative;
+  top: 4px;
+  height: 28px;
+}
+
+.ClearButton {
+  display: flex;
+  position: relative;
+  left: 34%;
+}
+
+.IncButton {
+  display: flex;
+  position: relative;
+  left: 4%;
+}
+
+.DecButton {
+  display: flex;
+  position: relative;
+  left: 12%;
+}
+
+.CategorizedList {
+  margin-top: 20px;
+  display: flex;
+}
+
+.CategorizedListAcc {
+  min-width: 225px;
+}
