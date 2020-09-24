@@ -2,8 +2,10 @@ import React from "react";
 import { Accordion, Card } from "react-bootstrap";
 
 const CategorizedList = (props) => {
-  const { itemList } = props;
-  console.log("derd, categorized", itemList);
+  const { itemList, itemDeleteHandler } = props;
+
+  console.log("derd categorized", props);
+
   let categoriesPresent = [];
 
   if (itemList.length) {
@@ -13,7 +15,7 @@ const CategorizedList = (props) => {
     });
   }
 
-  const getQuatityString = (quantity, type) => {
+  const getQuantityString = (quantity, type) => {
     if (quantity > 1) {
       if (type === "item") {
         return ` x ${quantity}`;
@@ -24,8 +26,7 @@ const CategorizedList = (props) => {
       return ``;
     }
   };
-  //const categoriesPresent = Object.values(itemList.category);
-  //console.log("derd cate", categoriesPresent);
+
   return (
     <Accordion className={"CategorizedListAcc"}>
       {categoriesPresent.map((category, cindex) => {
@@ -39,13 +40,22 @@ const CategorizedList = (props) => {
               eventKey={cindex + 1}
               className={"CategorizedListAccCardHeader"}
             >
-              {`${category}${getQuatityString(categorizedItems.length)}`}
+              {`${category}${getQuantityString(categorizedItems.length)}`}
             </Accordion.Toggle>
             {categorizedItems.map((item, index) => (
               <Accordion.Collapse key={index} eventKey={cindex + 1}>
-                <Card.Body className={"CategorizedListAccCardData"}>{`${
-                  item.item
-                }${getQuatityString(item.quantity, "item")}`}</Card.Body>
+                <Card.Body className={"CategorizedListAccCardData"}>
+                  <span>{`${item.item}${getQuantityString(
+                    item.quantity,
+                    "item"
+                  )}`}</span>
+                  <button
+                    className={"CategorizedListAccCardButton"}
+                    onClick={() => itemDeleteHandler(item)}
+                  >
+                    X
+                  </button>
+                </Card.Body>
               </Accordion.Collapse>
             ))}
           </Card>

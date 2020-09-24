@@ -99,6 +99,20 @@
 }
 
 .CategorizedListAccCardData {
-  background-color: #6c98bd;
+  background-color: #b6c7d8;
   font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 5px !important;
+}
+
+.CategorizedListAccCardButton {
+  position: relative;
+  top: -2px;
+  border: none;
+  background-color: #b6c7d8;
+}
+
+.CategorizedListAccCardButton:hover {
+  background-color: #59839c;
 }

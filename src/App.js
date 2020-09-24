@@ -27,24 +27,18 @@ const App = () => {
     }
   };
 
-  const addClickHandler = (e) => {
-    console.log("derd filter item", item);
-    console.log("derd filter itemCount", itemCount);
-    console.log("derd filter itemList", itemList);
-
-    /*let itemDuplicate = itemList.filter(
+  const itemIndexFinder = (itemToCheck) => {
+    console.log("derd in index finder item", itemToCheck);
+    return itemList.findIndex(
       (itemFilter) =>
-        itemFilter.category === category && itemFilter.item === item
-    );*/
-
-    let duplicateItemIndex = itemList.findIndex(
-      (itemFilter) =>
-        itemFilter.category === category && itemFilter.item === item
+        itemFilter.category === category && itemFilter.item === itemToCheck
     );
-    console.log("derd duplicate", duplicateItemIndex);
+  };
+
+  const addClickHandler = (e) => {
+    let duplicateItemIndex = itemIndexFinder(item);
 
     if (duplicateItemIndex !== -1) {
-      console.log("derd find index", itemList[duplicateItemIndex]);
       let newItemList = itemList;
       newItemList[duplicateItemIndex].quantity =
         newItemList[duplicateItemIndex].quantity + parseInt(itemCount, 10);
@@ -57,6 +51,13 @@ const App = () => {
     }
     setItem("");
     setItemCount(1);
+  };
+
+  const itemDeleteHandler = (itemToDelete) => {
+    let deletedItemList = itemList.filter((itemFilter) => {
+      return itemFilter !== itemToDelete;
+    });
+    setItemList(deletedItemList);
   };
 
   return (
@@ -130,7 +131,10 @@ const App = () => {
         </div>
       </div>
       <div className={"CategorizedList"}>
-        <CategorizedList itemList={itemList} />
+        <CategorizedList
+          itemList={itemList}
+          itemDeleteHandler={itemDeleteHandler}
+        />
       </div>
     </div>
   );
